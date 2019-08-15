@@ -1,27 +1,31 @@
 import React from "react";
-import FriendCard from "./components/FriendCard";
+import Cards from "./components/Cards";
 import Wrapper from "./components/Wrapper";
-import friends from "./friends.json";
+import cards from "./cards.json";
 import "./App.css";
 
+// friends = cards, deleteFriend = randomCard,
 // function App() {
 class App extends React.Component{
 state = {
-  friends
+  cards,
+  score: 0,
+  totalScore: 0,
 };
 
-deleteFriend = id => this.setState({ friends: this.state.friends.filter(friend => friend.id !== id) })
+// deleteFriend = randomCard
+randomCard = id => this.setState({ cards: this.state.cards.filter(friend => friend.id !== id) })
 
   render(){
   return (
     <Wrapper>
       <h1 className="title">Clicking Game</h1>
 
-{/* // {friends.map(friend => ( */}
-{this.state.friends.map(friend => (
-  <FriendCard 
+{/* // {cards.map(friend => ( */}
+{this.state.cards.map(friend => (
+  <Cards 
   key = {friend.id}
-  deleteFriend = {this.deleteFriend}
+  randomCard = {this.randomCard}
   {...friend} />
 ))}
 
