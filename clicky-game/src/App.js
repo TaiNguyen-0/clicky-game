@@ -19,8 +19,9 @@ randomCard = id => this.setState({ cards: this.state.cards.filter(friend => frie
   render(){
   return (
     <Wrapper>
-      <h1 className="title">Clicking Game</h1>
-
+      <h1 className="title">Clicking Game <p><div>Score: {this.score}  <div>Total Score: {this.totalScore}</div></div></p></h1>
+      <div></div>
+      
 {/* // {cards.map(friend => ( */}
 {this.state.cards.map(friend => (
   <Cards 
