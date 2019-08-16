@@ -36,7 +36,7 @@ randomCard = id => {
         this.setState({score : this.state.score + 1}, function(){
           console.log(this.state.score);
         });
-        this.state.cards.sort(() => Math.random() - 1.7)
+        this.state.cards.sort(() => Math.random() - 3.3)
         return true; 
       } else {
         this.scoreCheck();

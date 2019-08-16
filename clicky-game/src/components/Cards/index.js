@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-// This just displays the card
+// This just displays the card and gives the onClick trigger
 
 function Cards(props) {
   return (
