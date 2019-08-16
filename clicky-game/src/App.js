@@ -13,29 +13,30 @@ state = {
   totalScore: 0,
 };
 
+// If score is greater than totalScore, set totalScore to score.
 scoreCheck = () => {
   if (this.state.score > this.state.totalScore) {
     this.setState({totalScore: this.state.score}, function() {
       console.log(this.state.totalScore);
     });
   }
-  this.state.cards.forEach(card => {
-    card.count = 0;
+  this.state.cards.forEach(friend => {
+    friend.count = 0;
   });
-  alert(`Nice try.\nScore: ${this.state.score}`);
+  // alert(`You picked this picture already.\nScore: ${this.state.score}`);
   this.setState({score: 0});
   return true;
 }
 
-clickCount = id => {
-  this.state.cards.find((thing, i) => {
-    if (thing.id === id) {
+randomCard = id => {
+  this.state.cards.find((thisfunc, i) => {
+    if (thisfunc.id === id) {
       if(cards[i].count === 0){
         cards[i].count = cards[i].count + 1;
         this.setState({score : this.state.score + 1}, function(){
           console.log(this.state.score);
         });
-        this.state.cards.sort(() => Math.random() - 1)
+        this.state.cards.sort(() => Math.random() - 1.7)
         return true; 
       } else {
         this.scoreCheck();
@@ -45,7 +46,7 @@ clickCount = id => {
 }
 
 // deleteFriend = randomCard
-randomCard = id => this.setState({ cards: this.state.cards.filter(friend => friend.id !== id) })
+// randomCard = id => this.setState({ cards: this.state.cards.filter(friend => friend.id !== id) })
 
   render(){
   return (
@@ -59,7 +60,7 @@ randomCard = id => this.setState({ cards: this.state.cards.filter(friend => frie
   <Cards 
   key = {friend.id}
   randomCard = {this.randomCard}
-  clicks = {this.clickCount}
+  clicks = {this.randomCard}
   {...friend} />
 ))}
 
